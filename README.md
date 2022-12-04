@@ -1,6 +1,6 @@
 # snow.js
 
-## Easy snow in your websites
+Easy snow in your websites
 
 # Usage
 1. Import the script
