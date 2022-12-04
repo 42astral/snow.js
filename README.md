@@ -1,2 +1,17 @@
 # snow.js
-Easily add snow to your websites
+
+## Easy snow in your websites
+
+# Usage
+1. Import the script
+```<script src="snow.js"></script>```
+2. Call snow()
+  - optional arguments ```num``` and ```colors```
+    - colors is an array of strings, hex codes, rgb values, etc.   e.g. ```["#f0f", "rgb(0, 255, 0)"]```
+    - if called with no arguments, defaults to 100 white snow particles
+    
+## Examples
+
+```snow();```
+
+```snow(150, ["#f0f", "rgb(0, 255, 0)"]);```
