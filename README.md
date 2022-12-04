@@ -15,9 +15,9 @@ Easy snow in your websites
 ## Examples
 
 ```js 
-snow();
+snow(); // default 100 white snow particles
 ```
 
 ```js 
-snow(150, ["#f0f", "rgb(0, 255, 0)"]);
+snow(150, ["#f0f", "rgb(0, 255, 0)"]); // 150 purple and green snow particles
 ```
