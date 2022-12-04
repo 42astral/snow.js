@@ -36,7 +36,7 @@ class Snow {
             this.y += this.yv;
         }
 
-        if (this.y > 0 && !this.lifetime) this.lifetime = performance.now() + Math.random() * 3000 + 1000;
+        if (this.y > 0 && !this.lifetime) this.lifetime = performance.now() + Math.random() * 2500 + 750;
 
         if (this.y > 98.5) this.grounded = true;
 
