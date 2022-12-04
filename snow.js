@@ -4,8 +4,8 @@ class Snow {
         this.y = y;
         this.s = s;
         this.xv = 0;
-        this.yv = Math.random() * 0.25 + 0.5;
-        this.xvmult = Math.random() * 0.2 + 1;
+        this.yv = Math.random() * 0.3 + 0.5;
+        this.xvmult = Math.random() * 0.5 + 0.8;
         this.dying = false;
         this.grounded = false;
         this.lifetime = false;
