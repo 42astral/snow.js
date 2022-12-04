@@ -4,8 +4,8 @@ class Snow {
         this.y = y;
         this.s = s;
         this.xv = 0;
-        this.yv = Math.random() * 0.1 + 0.5;
-        this.xvmult = Math.random() * 0.15 + 1;
+        this.yv = Math.random() * 0.25 + 0.5;
+        this.xvmult = Math.random() * 0.2 + 1;
         this.dying = false;
         this.grounded = false;
         this.lifetime = false;
@@ -29,7 +29,7 @@ class Snow {
     }
 
     update() {
-        this.xv = (mouseX - window.innerWidth / 2) / window.innerWidth * 1.5 * this.xvmult;
+        this.xv = (mouseX - window.innerWidth / 2) / window.innerWidth * 2 * this.xvmult;
 
         if (!this.grounded) {
             this.x += this.xv;
@@ -73,7 +73,7 @@ class Snow {
 
 let mouseX = window.innerWidth / 2;
 
-const snow = (num = 100, colors = ["#fff"]) => {
+const snow = (num = 50, colors = ["#fff"]) => {
     if (window.snows) return;
     window.snows = [];
     
