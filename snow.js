@@ -19,7 +19,7 @@ class Snow {
 		el.style.width = `${this.s}px`;
 		el.style.height = `${this.s}px`;
 		el.style.backgroundColor = color;
-		el.style.top = `${this.y}%`;
+		el.style.bottom = `${100 - this.y}%`;
 		el.style.left = `${this.x}%`;
 		el.style.zIndex = "999";
 		document.body.append(el);
@@ -36,13 +36,13 @@ class Snow {
 	
 		if (this.y > 97) {
 			this.grounded = true;
-			this.y = 97 + (window.innerHeight - this.s) / window.innerHeight;
+			this.y = 99 - (window.innerHeight - this.s) / window.innerHeight;
 		}
 
 		if (this.x > 99) this.x = 1;
 		if (this.x < 1) this.x = 99;
 
-		this.el.style.top = `${this.y}%`;
+		this.el.style.bottom = `${100 - this.y}%`;
 		this.el.style.left = `${this.x}%`;
 	}
 
@@ -67,6 +67,10 @@ class Snow {
 
 let mouseX = window.innerWidth / 2;
 
+let now;
+let frameInterval;
+let then;
+
 const snow = (num = 50, colors = ["#fff"]) => {
 	if (window.ran) return;
 	window.ran = true;
@@ -74,7 +78,7 @@ const snow = (num = 50, colors = ["#fff"]) => {
 	let snows = [];
 	
 	for (let i = 0; i < num; i++) {
-		let particle = new Snow(Math.random() * 100, Math.random() * 100 - 100, Math.random() * 5 + 2);
+		let particle = new Snow(Math.random() * 100, Math.random() * 300 - 300, Math.random() * 5 + 2);
 		particle.init(colors[Math.floor(Math.random() * colors.length)]);
 		snows.push(particle);
 	}
@@ -83,21 +87,21 @@ const snow = (num = 50, colors = ["#fff"]) => {
 }
 
 const update = (snow) => {
+	requestAnimationFrame(() => {
+		update(snow);
+	})
+	
 	for (const particle of snow) {
 		if (particle.grounded) {
 			if (!particle.dying) particle.el.style.scale = "1";
 			if (!particle.dietime) {
 				particle.dying = true;
-				particle.dietime = performance.now() + Math.random() * 1550 + 300;
+				particle.dietime = performance.now() + Math.random() * 1000 + 300;
 			};
 			if (particle.dietime && performance.now() > particle.dietime) particle.die()
 		}
 		particle.update();
 	}
-
-	setTimeout(() => requestAnimationFrame(() => {
-		update(snow);
-	}), 5);
 }
 
 window.onmousemove = (e) => mouseX = e.clientX;
