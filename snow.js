@@ -22,8 +22,6 @@ class Snow {
         el.style.top = `${this.y}%`;
         el.style.left = `${this.x}%`;
         el.style.zIndex = "999";
-        el.id = `f${(Math.random() * 1000000000).toFixed(0).toString(25)}`;
-        this.id = el.id;
         document.body.append(el);
         this.el = el;
     }
@@ -42,12 +40,8 @@ class Snow {
 
         if (this.x > 99) this.x = 1;
         if (this.x < 1) this.x = 99;
-
-        let bodyReference = document.querySelector(`#${this.el.id}`);
-
-        bodyReference.style.top = `${this.y}%`;
+        
         this.el.style.top = `${this.y}%`;
-        bodyReference.style.left = `${this.x}%`;
         this.el.style.left = `${this.x}%`;
     }
 
