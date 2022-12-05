@@ -88,7 +88,7 @@ const update = (snow) => {
 			if (!particle.dying) particle.el.style.scale = "1";
 			if (!particle.dietime) {
 				particle.dying = true;
-				particle.dietime = performance.now() + Math.random() * 1000;
+				particle.dietime = performance.now() + Math.random() * 1550 + 300;
 			};
 			if (particle.dietime && performance.now() > particle.dietime) particle.die()
 		}
